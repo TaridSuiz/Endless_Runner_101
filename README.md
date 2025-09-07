@@ -10,6 +10,7 @@
 
 * **Live Demo (WebGL):** *(ใส่ลิงก์ GitHub Pages ที่นี่ ถ้ายังไม่มีให้ลบหัวข้อนี้)*
 * **เวอร์ชันล่าสุด:** ดูที่ [Releases](./releases) *(หากใช้)*
+* GoogleDrive https://drive.google.com/drive/folders/1IANeRjU2AWefkxencB9Gdr_VX0OeKtbi?usp=sharing
 
 > **หมายเหตุ:** Unity เวอร์ชันที่ใช้: **Unity 6 (ใส่เลขเวอร์ชันเต็มจาก `ProjectSettings/ProjectVersion.txt`)**
 
