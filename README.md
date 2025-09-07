@@ -48,7 +48,7 @@
 
 | Gameplay                       | Game Over                      | Icons                  |
 | ------------------------------ | ------------------------------ | ---------------------- |
-| ![Gameplay](docs/gameplay.gif) | ![GameOver](docs/gameover.png) | ![Icon](docs/icon.png) |
+| ![Gameplay](docs/gameplay.png) | ![GameOver](docs/gameover.png) | ![Icon](docs/icon.icon) |
 
 ---
 
