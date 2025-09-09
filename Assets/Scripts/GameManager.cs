@@ -7,21 +7,21 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    [Header("UI")]
+   
     public GameObject gameOverUI;
     public Text scoreUi;
     public Text hiScoreUi;
 
-    [Header("BGM (Background Music)")]
+  
     public AudioSource bgmSource;        // ลาก AudioSource ที่มี "Happy" (Loop, PlayOnAwake) มาวาง
     public AudioClip gameplayBgm;        // ถ้ามีก็ใส่ (ไม่ใส่ก็ใช้ clip ที่อยู่บน bgmSource ได้)
     public AudioClip gameOverBgm;        // เพลงพื้นหลังตอน Game Over
     [Range(0f, 1f)] public float bgmVolume = 1f;
     public float bgmFadeDuration = 0.75f;
 
-    [Header("SFX")]
-    public AudioClip gameOverSfx;        // เสียงสั้น ๆ ตอนจบเกม
-    private AudioSource sfxSource;       // ใช้สำหรับ SFX เท่านั้น
+
+    public AudioClip gameOverSfx;        
+    private AudioSource sfxSource;       
 
     int score = 0;
     bool isGameOver;
@@ -30,24 +30,24 @@ public class GameManager : MonoBehaviour
     {
         if (instance == null) instance = this;
 
-        // หา/ตั้งค่า BGM Source
+        
         if (!bgmSource) bgmSource = GetComponent<AudioSource>();
         if (bgmSource)
         {
-            bgmSource.spatialBlend = 0f;      // 2D
+            bgmSource.spatialBlend = 0f;     
             bgmSource.loop = true;
             bgmSource.volume = bgmVolume;
 
-            // ถ้ากำหนด gameplayBgm ไว้ ให้ใช้เพลงนี้เป็นเพลงเริ่ม
+            
             if (gameplayBgm) bgmSource.clip = gameplayBgm;
             if (!bgmSource.isPlaying && bgmSource.clip) bgmSource.Play();
         }
 
-        // ทำ SFX Source แยก (จะไม่เล่นเอง)
+        
         sfxSource = gameObject.AddComponent<AudioSource>();
         sfxSource.playOnAwake = false;
         sfxSource.spatialBlend = 0f;
-        sfxSource.ignoreListenerPause = true; // กันกรณีมี Pause ตอน GameOver
+        sfxSource.ignoreListenerPause = true; 
     }
 
     private void Start()
@@ -73,8 +73,7 @@ public class GameManager : MonoBehaviour
         // 3) สลับเพลงพื้นหลังเป็นเพลง GameOver (พร้อมเฟด)
         StartCoroutine(SwapBgm(gameOverBgm, bgmFadeDuration));
 
-        // ถ้าต้องการ "รอให้ SFX จบก่อนค่อยเปลี่ยนเพลง"
-        // StartCoroutine(SwapBgmAfterSfx(gameOverBgm));
+     
     }
 
     IEnumerator SwapBgm(AudioClip newClip, float fadeDur)
